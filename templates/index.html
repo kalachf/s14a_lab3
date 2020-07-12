@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- All we need for overall page requirements to get started w/Bootstrap (framework for building responsive,
+		 , mobile-first sites, w/BootstrapCDN and a template starter. -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <title>Assignment 2 of Lab 3</title>
+
+    <!-- Styles -->
+    <link href="{{ url_for('static', filename='./css/index.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<br><center><h1>{{ header1 }}</h1></center><br>
+<center>
+    <div class="btn-group btn-group-lg">
+        <button name="btnadduser" type="button" class="btn btn-primary" onClick="location.href='/'">List Users</button>
+        <button name="btnadduser" type="button" class="btn btn-primary" onClick="location.href='/adduser'">Add User</button>
+        <button name="btnupduser" type="button" class="btn btn-primary" onClick="location.href='/upduser'">Update User</button>
+        <button name="btndeluser" type="button" class="btn btn-primary" onClick="location.href='/deluser'">Delete User</button>
+        <button name="btnmockuser" type="button" class="btn btn-primary" onClick="location.href='/mockuser'">Mock Users</button>
+    </div>
+</center>
+<br>
+<table style="width:50%" align="center">
+    <tr>
+        <th>User ID</th>
+        <th>First Name</th>
+        <th>Age</th>
+    </tr>
+    {% for row in user_result %}
+    <tr>
+        <td>{{ row.user_id }}</td>
+        <td>{{ row.first_name }}</td>
+        <td>{{ row.age }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

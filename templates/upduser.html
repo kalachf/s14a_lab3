@@ -1,0 +1,37 @@
+<!-- Styles -->
+<link href="{{ url_for('static', filename='./css/index.css') }}" rel="stylesheet">
+
+<h1>Update User:</h1>
+<form class="update-user-form" method="POST" action="/upduser"  onSubmit="return confirm('Are you sure you wish to UPDATE User?');">
+    {{ form.hidden_tag() }}
+    <div class="update-user-form-group">
+        {{ form.user_id.label }}:
+        {{ form.user_id }}
+        {% if form.user_id.errors %}
+            {% for error in form.user_id.errors %}
+                <p class="del-user-error-message">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>    
+    <div class="update-user-form-group">
+        {{ form.first_name.label }}:
+        {{ form.first_name }}
+        {% if form.first_name.errors %}
+            {% for error in form.first_name.errors %}
+                <p class="update-user-error-message">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="update-user-form-group">
+        {{ form.age.label }}:
+        {{ form.age }}
+        {% if form.age.errors %}
+            {% for error in form.age.errors %}
+                <p class="update-user-error-message">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="update-user-form-submit">
+        {{ form.submit }}
+    </div>
+</form>

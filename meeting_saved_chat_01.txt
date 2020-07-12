@@ -1,0 +1,113 @@
+12:02:16	 From  Brendan Liu : I’m currently running through the Pandas notebook
+12:02:36	 From  Brendan Liu : Lab1 ran into Git authentication errors I’m currently unsure on how to resolve
+12:02:41	 From  Brendan Liu : Lab2 is in progress
+12:05:14	 From  Brendan Liu : I’m stagnated on progress for lab setup, how in heck am I going to survive the *crucial* weeks?
+12:13:14	 From  James Capobianco-XID : I assume if we're using WSL, we can't use the Windows install, but have to install in Linux, right?
+12:15:05	 From  Zephyr Jones : What port number should the server listen on? It defaulted to 5432, is that good?
+12:18:18	 From  Robert Dotson : sudo apt install postgresql
+12:20:46	 From  Brendan Liu : I’m so sorry for being a liability. I really should be caught up at this point but instead I’m stuck and falling behind.
+12:21:56	 From  Robert Dotson : pg_ctl -D /usr/local/var/postgres start
+12:23:45	 From  Chris : try: find / -iname postgres 2>/dev/null, should show you all postgres installs.
+12:23:53	 From  Andrew Rodriguez : Brendan don’t give up - these are tough setup steps. Usually setup is always a painful process - but once you get it working it’ll be smooth sailing!
+12:23:58	 From  Robert Dotson : brew uninstall postgresql
+12:25:13	 From  Robert Dotson : brew install postgresql@11
+12:25:30	 From  James Capobianco-XID : on WSL, I'm getting the error: psql: error: could not connect to server: FATAL:  role "jmc939" does not exist
+12:25:41	 From  Chris : did you provide user name
+12:25:44	 From  James Capobianco-XID : Or 'root' does not exist if I try to do it via sudo
+12:25:47	 From  Chris : if not, than you use username of postgres first
+12:25:50	 From  Chris : than create the role
+12:26:00	 From  James Capobianco-XID : what is the username of postgres?
+12:26:04	 From  Chris : psql -d postgres -U postgres
+12:26:13	 From  James Capobianco-XID : Ah, ok.
+12:26:33	 From  Chris : https://www.postgresql.org/docs/8.1/app-psql.html
+12:26:53	 From  Chris : postgres assumes your login username is part of the database, but base postgres install only comes with postgres user.
+12:27:06	 From  Tony Liu : I have a very weird error it asks for my password but I entered my password and it says password authentication failed
+12:27:20	 From  Mark Loh : I have the same error Tony
+12:27:27	 From  Chris : postgres does not have access to your main computers auth system
+12:27:48	 From  Chris : so you have to create the user and add a password.  You do this by first logging into postgres as postgres user.
+12:27:49	 From  James Capobianco-XID : Now I get a "peer authentication failed for user "postgres"
+12:28:30	 From  Tony Liu : How do I do that?
+12:28:50	 From  Robert Dotson : ls -lae /opt/bin/post*
+12:30:13	 From  Mr Jared Scott Jessup : https://stackoverflow.com/questions/8037729/completely-uninstall-postgresql-9-0-4-from-mac-osx-lion/9240197#9240197
+12:30:36	 From  Robert Dotson : ls -lae /usr/local/opt/bin/post*
+12:31:25	 From  Chris : so, you can check if postgres is up using: psql -l.  This will connect to database and list active databases.  If this fails due to socket not listening than use: pg_ctl -D /usr/local/var/postgres start, to start it.  You can use psql -d postgres -U postgres to login as master.  You can than use the create USER command with password option to create a user.
+12:32:06	 From  Zona Kostic : JJ, be careful with the time - :)
+12:32:16	 From  Tony Liu : Psql -l still asks for my password
+12:32:32	 From  Zona Kostic : Installation was part of the week I.
+12:33:22	 From  James Capobianco-XID : ok I'm in on WSL... had to google a bit to figure it out. This page helped: https://medium.com/@harshityadav95/postgresql-in-windows-subsystem-for-linux-wsl-6dc751ac1ff3
+12:33:35	 From  Christopher Henson : What document was that listed in Zona? I didn't see it on the lab.
+12:34:05	 From  Zona Kostic : @Christopher - you mean the pdf JJ shared?
+12:35:19	 From  Christopher Henson : One of the pdfs in the resources?
+12:35:26	 From  James Capobianco-XID : there was no instruction on installing postgres before now (that I saw)
+12:39:27	 From  Tiffany Lee : on Linux, this helped with password issues: https://docs.boundlessgeo.com/suite/1.1.1/dataadmin/pgGettingStarted/firstconnect.html
+12:39:29	 From  Robert Dotson : pg_ctl -D /usr/local/var/postgres start
+12:40:00	 From  Robert Dotson : brew postgresql-upgrade-database
+12:40:26	 From  Christopher Henson : @Zona I see the Postgres instructions in the lab 1 pdf, but that wasn't covered in the markdown file in git or in the lab lecture.
+12:40:31	 From  Chris : I tend to use this: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads.  It will auto-detect versions allowing you to uninstall and install versions as well as extensions.  It manages everything for you.
+12:42:50	 From  Tony Liu : I still have that password issue
+12:44:26	 From  Tony Liu : psql: error: could not connect to server: FATAL:  password authentication failed for user "tonyliu"
+12:46:16	 From  James Capobianco-XID : Tony are you on WSL?
+12:46:59	 From  Mr Jared Scott Jessup : https://stackoverflow.com/questions/7695962/postgresql-password-authentication-failed-for-user-postgres
+13:09:15	 From  Karen Dolan-XID : Do others see this type of message in their IDE? “Instance of 'SQLAlchemy' has no 'model' member; maybe 'Model'? (no-member)”
+13:09:30	 From  Karen Dolan-XID : on the “class User(db.model):” line
+13:10:18	 From  Zephyr Jones : I get the same error, I would imagine that at some point it will be resolved
+13:17:28	 From  Zephyr Jones : what is the pip command to install modules?
+13:17:48	 From  Karen Dolan-XID : (Jared’s battery icon just went red, down to 19% and not plugged in)
+13:19:32	 From  Zephyr Jones : Oh lol it's simply pip install modules
+13:27:17	 From  Zephyr Jones : 'SQLAlchemy' object has no attribute 'model' is the error I get when I run
+13:29:52	 From  Akane Edwards : same
+13:32:11	 From  Zephyr Jones : I get an import error for models.user import Db
+13:39:47	 From  Mark Loh : same error Zephyr
+13:39:50	 From  Mark Loh : for me
+13:40:29	 From  Zephyr Jones : The fix is to replace the lowercase db with Db in user.py
+13:40:46	 From  Zephyr Jones : just a simple find and replace
+13:40:59	 From  Akane Edwards : no
+13:41:16	 From  Akane Edwards : im running into this error
+13:41:16	 From  Akane Edwards : sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) fe_sendauth: no password supplied
+13:41:47	 From  Mark Loh : ModuleNotFoundError: No module named 'model'Is the error I'm getting
+13:45:58	 From  Akane Edwards : how do you type in the key?
+13:47:02	 From  Mr Jared Scott Jessup : https://stackoverflow.com/questions/23839656/sqlalchemy-no-password-supplied-error
+13:47:42	 From  Brendan Liu : JJ, Brian and I successfully finished lab1 and deployed the Heroic app together, though it still loads up an internal server error when launched. Is this still alright? I imagine we still need to add more stuff for stuff to show up.
+13:47:50	 From  Brendan Liu : *Heroku
+13:50:03	 From  Mr Jared Scott Jessup : https://pypi.org/project/python-dotenv/
+13:58:21	 From  Robert Dotson : You can also add this to your html template
+13:58:23	 From  Robert Dotson : <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+14:00:22	 From  Karen Dolan-XID : Can you clarify the upper case vs lower case, because I have the User in both places, but still have the no toString
+14:01:06	 From  Karen Dolan-XID : Does the file name have to be User.py?
+14:06:55	 From  Zephyr Jones : no, the file name is user.py
+14:06:57	 From  Akane Edwards : no, im still having trouble displaying adduser.html
+14:07:14	 From  Zephyr Jones : What is your error akane
+14:07:27	 From  Akane Edwards : my page just opens to index.html
+14:07:30	 From  Akane Edwards : when I run my flask
+14:07:51	 From  Karen Dolan-XID : I’m getting "AttributeError: type object 'User' has no attribute 'tostring' still
+
+"
+14:07:57	 From  Zephyr Jones : Oh, add /adduser to the end of your url @Akane
+14:08:03	 From  Akane Edwards : thanks
+14:08:12	 From  Akane Edwards : it worked!
+14:08:13	 From  Zephyr Jones : make tostring toString
+14:08:30	 From  Zephyr Jones : @Karen
+14:09:36	 From  Brendan Liu : Step 4 is telling me to initialize the app before adding more given text. Is there any specific way to do this?
+14:09:56	 From  Brendan Liu : *or any specific way you want us to do it?
+14:10:05	 From  Brendan Liu : (I can always rewatch the lecture to catch up)
+14:11:33	 From  Zephyr Jones : @Brendan, just paste in the rest of the code, I think making the app.py file and adding the imports counts as initializing your app
+14:12:26	 From  Brendan Liu : Thanks again Zephyr :)
+14:18:33	 From  Christopher Henson : Bootstrap is a good choice if you have no frontend styling sense.
+14:22:49	 From  Brendan Liu : I assume I can visit you on office hours, just to check in and see if I’m on the right track
+14:23:23	 From  Brendan Liu : Though I probably should do a bit more reading myself to get familiar with Flask and whatnot
+14:24:24	 From  Brendan Liu : (Should I be setting up all the same files from my lab1 folder for lab3?)
+14:24:55	 From  Brendan Liu : Like pycache, Procfile, static and templates?
+14:29:20	 From  Zona Kostic : agree!
+14:29:39	 From  Zona Kostic : GitHub is preferable
+14:30:13	 From  Brendan Liu : I’ve done HTML & CSS in the past, I’ve unfortunately forgotten most of the concepts v.v
+14:41:13	 From  Brendan Liu : Geez. We’re starting to do stuff on our own for homework, but I’m still a complete stranger to 90% of the lines at this point ;-;
+14:42:00	 From  Brendan Liu : I’ve never even used the terminal, Flask, or GitHub until now…
+14:42:47	 From  Brendan Liu : It gets to the point where I can’t ask proper questions, but instead just scream for complete guidance/help
+14:42:57	 From  Tony Liu : Well, me neither haha. Trying my best to catch up
+14:43:24	 From  Brendan Liu : We’re gonna be great friends Liu
+14:44:39	 From  Tony Liu : Yeah!
+14:49:50	 From  Mr Jared Scott Jessup : https://devcenter.heroku.com/articles/heroku-postgresql
+14:53:40	 From  Mr Jared Scott Jessup : https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc
+14:57:05	 From  Zona Kostic : I need to go - have the next meeting at 3pm.

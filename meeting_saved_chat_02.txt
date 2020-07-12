@@ -1,0 +1,21 @@
+12:06:50	 From  Brendan Liu : ;-;
+12:13:02	 From  Zona Kostic : It is on Piazza as well
+12:13:09	 From  Zona Kostic : Aleksandar’s email address
+12:36:20	 From  James Capobianco-XID : I only had floppy on my commodore 64, but some people had only tape drive...
+12:36:58	 From  James Capobianco-XID : If you typed in the wrong command to load a program, you got the output back "press play on tape"
+12:39:19	 From  James Capobianco-XID : If you wanted to play something, you had to type LOAD "*",8,1 -- but if you forgot the ,8,1, it would look for the file on tape instead of floppy
+13:17:32	 From  Robert Dotson : If anyone is familiar with object oriented programming (OOP) this is the database analogue of that same concept.
+14:13:54	 From  Robert Dotson : EAVs cause a LOT of cache misses, which may cause the performance to tank extremely fast
+14:42:35	 From  Robert Dotson : After class, I’d recommend people wikipedia ACID which gives a deep dive into these transactional issues
+14:42:43	 From  Robert Dotson : lol
+14:42:48	 From  James Capobianco-XID : speak of the devil...
+14:43:32	 From  Robert Dotson : Doesn’t the I stand for “Idemptotent”?
+14:44:21	 From  James Capobianco-XID : Wikipedia says isolation
+14:47:01	 From  James Capobianco-XID : Isn't that what flask models are doing?
+14:47:57	 From  James Capobianco-XID : Using python classes to query databases without using SQL?
+14:48:35	 From  Robert Dotson : Fair.
+14:50:27	 From  Robert Dotson : https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiD5Mz36sDqAhWNhHIEHW3eA704ChAWMAB6BAgHEAE&url=https%3A%2F%2Fbyu.instructure.com%2Fcourses%2F617%2Ffiles%2F79976%2Fdownload%3Fverifier%3D9gCslV66aD9mlMYYYS1TyLr36zyEUaPbGWJgDcqK&usg=AOvVaw3AI927ftSSOT9tDRMKilre
+14:50:54	 From  Robert Dotson : Ignore the last link. This one is what I was thinking of: https://instructure-uploads.s3.amazonaws.com/account_74070000000000001/attachments/48831/Failure%20and%20Consensus.pdf?response-content-disposition=attachment%3B%20filename%3D%22Failure%20and%20Consensus.pdf%22%3B%20filename%2A%3DUTF-8%27%27Failure%2520and%2520Consensus.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJDW777BLV26JM2MQ%2F20200709%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200709T184931Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=b5cfadd9cc8aa4c19da6a8335f1a46a3c34072db6fd609d2addbdac497592307
+15:01:06	 From  Brendan Liu : I wish I had questions
+15:01:32	 From  Brendan Liu : *I’m such a novice to understand these things in short time*
+15:01:34	 From  Brendan Liu : hehe

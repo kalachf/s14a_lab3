@@ -1,0 +1,19 @@
+<!-- Styles -->
+<link href="{{ url_for('static', filename='./css/index.css') }}" rel="stylesheet">
+
+<h1>Delete User:</h1>
+<form class="del-user-form" method="POST" action="/deluser" onSubmit="return confirm('Are you sure you wish to DELETE User?');">
+    {{ form.hidden_tag() }}
+    <div class="del-user-form-group">
+        {{ form.user_id.label }}:
+        {{ form.user_id }}
+        {% if form.user_id.errors %}
+            {% for error in form.user_id.errors %}
+                <p class="del-user-error-message">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="del-user-form-submit">
+        {{ form.submit }} 
+    </div>
+</form>
